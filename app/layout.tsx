@@ -3,7 +3,8 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { APP_NAME, SITE_URL } from "@/lib/constants";
+import { GoogleAnalytics } from "@/components/google-analytics";
+import { APP_NAME, SITE_URL, GA_MEASUREMENT_ID } from "@/lib/constants";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -36,6 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      {GA_MEASUREMENT_ID && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} font-sans antialiased`}
         suppressHydrationWarning
