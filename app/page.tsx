@@ -27,8 +27,10 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button size="lg" className="text-lg" disabled>
-              Coming Soon
+            <Button asChild size="lg" className="text-lg">
+              <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
+                Download on App Store
+              </a>
             </Button>
             <Button asChild size="lg" variant="outline" className="text-lg">
               <Link href="#features">
@@ -207,10 +209,12 @@ export default function Home() {
             Ready to start shopping?
           </h2>
           <p className="text-xl text-muted-foreground">
-            {APP_NAME} will be available soon on the App Store
+            {APP_NAME} is now available on the App Store
           </p>
-          <Button size="lg" className="text-lg" disabled>
-            Coming Soon
+          <Button asChild size="lg" className="text-lg">
+            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
+              Download on App Store
+            </a>
           </Button>
         </div>
       </section>
