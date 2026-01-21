@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { APP_NAME, APP_STORE_URL, COMPANY } from "@/lib/constants";
-import { Heart, Sparkles, Bell, TrendingUp } from "lucide-react";
+import { Heart, Sparkles, Bell, TrendingUp, ShoppingBag, Wallet, Clock, Gift } from "lucide-react";
 
 export default function Home() {
   return (
@@ -82,8 +82,126 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Target Users Section */}
+      <section id="target-users" className="px-4 py-20">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            Who is {APP_NAME} for?
+          </h2>
+          <p className="text-xl text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
+            {APP_NAME} is designed for savvy shoppers who want a smarter, more engaging way to discover products
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="p-8 space-y-4">
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-full bg-primary/10">
+                  <ShoppingBag className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-2xl font-semibold">Deal Hunters</h3>
+              </div>
+              <p className="text-muted-foreground text-lg">
+                Always looking for the best prices and exclusive offers? {APP_NAME} helps you discover trending deals and get notified when prices drop on your favorite products.
+              </p>
+              <ul className="space-y-2 text-muted-foreground">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Price drop notifications
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Track products across retailers
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Never miss a sale again
+                </li>
+              </ul>
+            </Card>
+
+            <Card className="p-8 space-y-4">
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-full bg-primary/10">
+                  <Clock className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-2xl font-semibold">Busy Professionals</h3>
+              </div>
+              <p className="text-muted-foreground text-lg">
+                Short on time but still want to stay updated on the latest products? Swipe through curated selections during your commute or coffee break.
+              </p>
+              <ul className="space-y-2 text-muted-foreground">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Quick swipe-based browsing
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Personalized recommendations
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Save items for later purchase
+                </li>
+              </ul>
+            </Card>
+
+            <Card className="p-8 space-y-4">
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-full bg-primary/10">
+                  <Gift className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-2xl font-semibold">Gift Shoppers</h3>
+              </div>
+              <p className="text-muted-foreground text-lg">
+                Finding the perfect gift can be overwhelming. {APP_NAME} makes discovery fun and helps you build wishlists for every occasion.
+              </p>
+              <ul className="space-y-2 text-muted-foreground">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Discover unique products
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Organize wishlists by category
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Get inspired by trending items
+                </li>
+              </ul>
+            </Card>
+
+            <Card className="p-8 space-y-4">
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-full bg-primary/10">
+                  <Wallet className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-2xl font-semibold">Budget-Conscious Shoppers</h3>
+              </div>
+              <p className="text-muted-foreground text-lg">
+                Want to make informed purchase decisions? Track price history and wait for the right moment to buy with {APP_NAME}&apos;s smart price tracking.
+              </p>
+              <ul className="space-y-2 text-muted-foreground">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Price history tracking
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Set custom price alerts
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Compare across stores
+                </li>
+              </ul>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="px-4 py-20">
+      <section className="px-4 py-20 bg-muted/50">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-3xl md:text-4xl font-bold">
             Ready to start shopping?
