@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -26,12 +27,16 @@ export default function Home() {
             The Tinder-style shopping experience for iOS.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button asChild size="lg" className="text-lg">
-              <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
-                Download on App Store
-              </a>
-            </Button>
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center pt-4">
+            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
+              <Image
+                src="/app-store-badge.svg"
+                alt="Download on the App Store"
+                width={180}
+                height={60}
+                className="h-14 w-auto"
+              />
+            </a>
             <Button asChild size="lg" variant="outline" className="text-lg">
               <Link href="#features">
                 Learn More
@@ -211,11 +216,15 @@ export default function Home() {
           <p className="text-xl text-muted-foreground">
             {APP_NAME} is now available on the App Store
           </p>
-          <Button asChild size="lg" className="text-lg">
-            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
-              Download on App Store
-            </a>
-          </Button>
+          <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
+            <Image
+              src="/app-store-badge.svg"
+              alt="Download on the App Store"
+              width={180}
+              height={60}
+              className="h-14 w-auto mx-auto"
+            />
+          </a>
         </div>
       </section>
 
