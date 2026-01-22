@@ -24,7 +24,7 @@ export default function Home() {
 
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
             Swipe through curated products, save your favorites, and never miss a deal.
-            The Tinder-style shopping experience for iOS.
+            The swipe-based shopping experience for iOS.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center pt-4">

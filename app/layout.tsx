@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     default: `${APP_NAME} - Discover Products You'll Love`,
     template: `%s | ${APP_NAME}`,
   },
-  description: "Swipe through curated products, save your favorites, and get the best deals. The Tinder-style shopping app for iOS.",
+  description: "Swipe through curated products, save your favorites, and get the best deals. The swipe-based shopping app for iOS.",
   keywords: ["shopping app", "deals", "products", "iOS", "wishlist", "affiliate shopping"],
   authors: [{ name: `${APP_NAME} Team` }],
   openGraph: {

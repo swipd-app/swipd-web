@@ -1,6 +1,6 @@
 # Swipd Web
 
-Landing page and marketing website for the Swipd iOS app - a Tinder-style affiliate shopping platform.
+Landing page and marketing website for the Swipd iOS app - a swipe-based affiliate shopping platform.
 
 ## Tech Stack
 
