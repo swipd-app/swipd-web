@@ -4,9 +4,9 @@ export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:30
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
 export const SOCIAL_LINKS = {
-  twitter: 'https://twitter.com/swipd',
-  instagram: 'https://instagram.com/swipd',
-  github: 'https://github.com/swipd',
+  twitter: '',
+  instagram: 'https://instagram.com/swipd.app',
+  github: '',
 }
 
 export const COMPANY = {

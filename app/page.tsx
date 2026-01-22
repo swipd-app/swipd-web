@@ -3,8 +3,24 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { APP_NAME, APP_STORE_URL, COMPANY } from "@/lib/constants";
-import { Heart, Sparkles, Bell, TrendingUp, ShoppingBag, Wallet, Clock, Gift } from "lucide-react";
+import { Footer } from "@/components/footer";
+import { AppScreenshotCarousel } from "@/components/app-screenshot-carousel";
+import { APP_NAME, APP_STORE_URL, SOCIAL_LINKS } from "@/lib/constants";
+import {
+  Heart,
+  Sparkles,
+  Bell,
+  TrendingUp,
+  ShoppingBag,
+  Wallet,
+  Clock,
+  Gift,
+  ArrowRight,
+  CheckCircle2,
+  Star,
+  Zap,
+  Shield,
+} from "lucide-react";
 
 export default function Home() {
   return (
@@ -17,14 +33,19 @@ export default function Home() {
       {/* Hero Section */}
       <section className="flex-1 flex flex-col items-center justify-center px-4 py-20 text-center">
         <div className="max-w-4xl mx-auto space-y-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
+            <Zap className="w-4 h-4" />
+            The next-gen shopping experience
+          </div>
+
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-            Discover Products <br />
-            You&apos;ll Love
+            Swipe, Discover, <br />
+            <span className="text-primary">Shop!</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-            Swipe through curated products, save your favorites, and never miss a deal.
-            The swipe-based shopping experience for iOS.
+            Discover thousands of products with intuitive swipe gestures, save
+            your favorites, and get notified instantly when prices drop.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center pt-4">
@@ -38,10 +59,135 @@ export default function Home() {
               />
             </a>
             <Button asChild size="lg" variant="outline" className="text-lg">
-              <Link href="#features">
-                Learn More
+              <Link href="#how-it-works">
+                How It Works
+                <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
             </Button>
+          </div>
+
+          {/* Trust Badges */}
+          <div className="flex flex-wrap items-center justify-center gap-6 pt-8 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <Shield className="w-4 h-4" />
+              <span>Safe Shopping</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Star className="w-4 h-4" />
+              <span>100% Free</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4" />
+              <span>No Ads</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section id="how-it-works" className="px-4 py-20 bg-muted/50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            How It Works
+          </h2>
+          <p className="text-xl text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+            Start smart shopping in 3 simple steps
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="relative text-center space-y-4">
+              <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-2xl font-bold mx-auto">
+                1
+              </div>
+              <h3 className="text-xl font-semibold">Swipe</h3>
+              <p className="text-muted-foreground">
+                Swipe right on products you love, left on ones you don&apos;t.
+                Simple and fun!
+              </p>
+            </div>
+
+            <div className="relative text-center space-y-4">
+              <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-2xl font-bold mx-auto">
+                2
+              </div>
+              <h3 className="text-xl font-semibold">Save</h3>
+              <p className="text-muted-foreground">
+                Products you like are automatically added to your wishlist.
+                Organize them by category.
+              </p>
+            </div>
+
+            <div className="relative text-center space-y-4">
+              <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-2xl font-bold mx-auto">
+                3
+              </div>
+              <h3 className="text-xl font-semibold">Buy</h3>
+              <p className="text-muted-foreground">
+                Get notified when prices drop and purchase directly from the
+                store.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* App Preview Section */}
+      <section className="px-4 py-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold">
+                We Made Shopping Fun
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Forget boring product lists. With {APP_NAME}, enjoy shopping
+                while discovering products tailored just for you.
+              </p>
+
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-primary mt-0.5" />
+                  <div>
+                    <span className="font-semibold">
+                      Personalized Recommendations
+                    </span>
+                    <p className="text-muted-foreground">
+                      Smart algorithm that learns from your preferences
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-primary mt-0.5" />
+                  <div>
+                    <span className="font-semibold">Real-time Price Tracking</span>
+                    <p className="text-muted-foreground">
+                      Automatically track prices on products you save
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-primary mt-0.5" />
+                  <div>
+                    <span className="font-semibold">Category Filters</span>
+                    <p className="text-muted-foreground">
+                      Filter products based on your interests
+                    </p>
+                  </div>
+                </li>
+              </ul>
+
+              <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block">
+                <Image
+                  src="/app-store-badge.svg"
+                  alt="Download on the App Store"
+                  width={180}
+                  height={60}
+                  className="h-14 w-auto"
+                />
+              </a>
+            </div>
+
+            <AppScreenshotCarousel />
           </div>
         </div>
       </section>
@@ -49,16 +195,19 @@ export default function Home() {
       {/* Features Section */}
       <section id="features" className="px-4 py-20 bg-muted/50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
             Why {APP_NAME}?
           </h2>
+          <p className="text-xl text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+            Features that make shopping easier
+          </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="p-6 space-y-4">
               <Sparkles className="w-10 h-10 text-primary" />
               <h3 className="text-xl font-semibold">Swipe to Discover</h3>
               <p className="text-muted-foreground">
-                Browse curated products with intuitive swipe gestures
+                Quickly discover products with intuitive swipe gestures
               </p>
             </Card>
 
@@ -80,9 +229,9 @@ export default function Home() {
 
             <Card className="p-6 space-y-4">
               <TrendingUp className="w-10 h-10 text-primary" />
-              <h3 className="text-xl font-semibold">Best Deals</h3>
+              <h3 className="text-xl font-semibold">Trending Products</h3>
               <p className="text-muted-foreground">
-                Discover trending products and exclusive offers
+                Never miss the most popular and trending items
               </p>
             </Card>
           </div>
@@ -96,7 +245,7 @@ export default function Home() {
             Who is {APP_NAME} for?
           </h2>
           <p className="text-xl text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
-            {APP_NAME} is designed for savvy shoppers who want a smarter, more engaging way to discover products
+            Designed for everyone who shops smart
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -108,7 +257,9 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold">Deal Hunters</h3>
               </div>
               <p className="text-muted-foreground text-lg">
-                Always looking for the best prices and exclusive offers? {APP_NAME} helps you discover trending deals and get notified when prices drop on your favorite products.
+                Always looking for the best prices and exclusive offers?{" "}
+                {APP_NAME} helps you discover trending deals and get notified
+                when prices drop.
               </p>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-center gap-2">
@@ -134,7 +285,9 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold">Busy Professionals</h3>
               </div>
               <p className="text-muted-foreground text-lg">
-                Short on time but still want to stay updated on the latest products? Swipe through curated selections during your commute or coffee break.
+                Short on time but still want to stay updated on the latest
+                products? Swipe through curated selections during your commute
+                or coffee break.
               </p>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-center gap-2">
@@ -160,7 +313,8 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold">Gift Shoppers</h3>
               </div>
               <p className="text-muted-foreground text-lg">
-                Finding the perfect gift can be overwhelming. {APP_NAME} makes discovery fun and helps you build wishlists for every occasion.
+                Finding the perfect gift can be overwhelming. {APP_NAME} makes
+                discovery fun and helps you build wishlists for every occasion.
               </p>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-center gap-2">
@@ -186,7 +340,9 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold">Budget-Conscious Shoppers</h3>
               </div>
               <p className="text-muted-foreground text-lg">
-                Want to make informed purchase decisions? Track price history and wait for the right moment to buy with {APP_NAME}&apos;s smart price tracking.
+                Want to make informed purchase decisions? Track price history
+                and wait for the right moment to buy with {APP_NAME}&apos;s smart
+                price tracking.
               </p>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-center gap-2">
@@ -211,40 +367,56 @@ export default function Home() {
       <section className="px-4 py-20 bg-muted/50">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-3xl md:text-4xl font-bold">
-            Ready to start shopping?
+            Ready to Start Shopping?
           </h2>
           <p className="text-xl text-muted-foreground">
-            {APP_NAME} is now available on the App Store
+            {APP_NAME} is available for free on the App Store
           </p>
-          <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
-            <Image
-              src="/app-store-badge.svg"
-              alt="Download on the App Store"
-              width={180}
-              height={60}
-              className="h-14 w-auto mx-auto"
-            />
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
+              <Image
+                src="/app-store-badge.svg"
+                alt="Download on the App Store"
+                width={180}
+                height={60}
+                className="h-14 w-auto"
+              />
+            </a>
+          </div>
+
+          {/* Social Links */}
+          {SOCIAL_LINKS.instagram && (
+            <div className="pt-8">
+              <p className="text-sm text-muted-foreground mb-4">
+                Follow us on social media
+              </p>
+              <div className="flex items-center justify-center gap-4">
+                <a
+                  href={SOCIAL_LINKS.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
+                >
+                  <svg
+                    className="w-6 h-6 text-primary"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t py-8 px-4">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <p>© 2025 {COMPANY.name}. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-foreground transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="hover:text-foreground transition-colors">
-              Terms of Service
-            </Link>
-            <a href={`mailto:${COMPANY.email}`} className="hover:text-foreground transition-colors">
-              Contact
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
