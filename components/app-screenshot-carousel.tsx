@@ -7,8 +7,13 @@ import { Button } from "@/components/ui/button";
 
 const screenshots = [
   { src: "/app-ss/1.png", alt: "Swipd app - Discover products" },
-  { src: "/app-ss/2.png", alt: "Swipd app - Wishlist" },
-  { src: "/app-ss/3.png", alt: "Swipd app - Price alerts" },
+  { src: "/app-ss/2.png", alt: "Swipd app - Swipe to like" },
+  { src: "/app-ss/3.png", alt: "Swipd app - Build your wishlist" },
+  { src: "/app-ss/4.png", alt: "Swipd app - Get price drop alerts" },
+  { src: "/app-ss/5.png", alt: "Swipd app - Filter by categories" },
+  { src: "/app-ss/6.png", alt: "Swipd app - Browse by stores" },
+  { src: "/app-ss/7.png", alt: "Swipd app - View product details" },
+  { src: "/app-ss/8.png", alt: "Swipd app - Shop quickly" },
 ];
 
 export function AppScreenshotCarousel() {
