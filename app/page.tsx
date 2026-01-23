@@ -385,12 +385,29 @@ export default function Home() {
           </div>
 
           {/* Social Links */}
-          {(SOCIAL_LINKS.instagram || SOCIAL_LINKS.github) && (
+          {(SOCIAL_LINKS.twitter || SOCIAL_LINKS.instagram || SOCIAL_LINKS.github) && (
             <div className="pt-8">
               <p className="text-sm text-muted-foreground mb-4">
                 Follow us on social media
               </p>
               <div className="flex items-center justify-center gap-4">
+                {SOCIAL_LINKS.twitter && (
+                  <a
+                    href={SOCIAL_LINKS.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
+                  >
+                    <svg
+                      className="w-6 h-6 text-primary"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  </a>
+                )}
                 {SOCIAL_LINKS.instagram && (
                   <a
                     href={SOCIAL_LINKS.instagram}

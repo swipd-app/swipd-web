@@ -3,7 +3,7 @@ export const APP_STORE_URL = process.env.NEXT_PUBLIC_APP_STORE_URL || 'https://a
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
 
 export const SOCIAL_LINKS = {
-  twitter: "",
+  twitter: "https://x.com/swipdapp",
   instagram: "https://instagram.com/swipd.app",
   github: "https://github.com/swipd-app",
 };
