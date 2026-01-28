@@ -38,9 +38,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" />
-        <link rel="preconnect" href="https://firebase.googleapis.com" />
+        <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://firebase.googleapis.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       </head>
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} font-sans antialiased`}

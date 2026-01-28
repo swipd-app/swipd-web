@@ -106,7 +106,7 @@ export function AppScreenshotCarousel() {
                 src={screenshot.src}
                 alt={screenshot.alt}
                 fill
-                sizes="(max-width: 640px) 280px, 280px"
+                sizes="280px"
                 className="object-cover select-none pointer-events-none"
                 priority={index === 0}
                 loading={index <= 1 ? "eager" : "lazy"}
