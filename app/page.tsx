@@ -24,7 +24,7 @@ import {
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <main className="flex flex-col min-h-screen">
       {/* Theme Toggle */}
       <div className="fixed top-4 right-4 z-50">
         <ThemeToggle />
@@ -396,6 +396,7 @@ export default function Home() {
                     href={SOCIAL_LINKS.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Follow us on X (Twitter)"
                     className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
                   >
                     <svg
@@ -413,6 +414,7 @@ export default function Home() {
                     href={SOCIAL_LINKS.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Follow us on Instagram"
                     className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
                   >
                     <svg
@@ -434,6 +436,7 @@ export default function Home() {
                     href={SOCIAL_LINKS.github}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="View our GitHub"
                     className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
                   >
                     <svg
@@ -457,6 +460,6 @@ export default function Home() {
       </section>
 
       <Footer />
-    </div>
+    </main>
   );
 }

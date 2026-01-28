@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,31 +16,106 @@ const screenshots = [
   { src: "/app-ss/8.png", alt: "Swipd app - Shop quickly" },
 ];
 
+const SWIPE_THRESHOLD = 50;
+
 export function AppScreenshotCarousel() {
   const [current, setCurrent] = useState(0);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const startX = useRef(0);
+  const currentX = useRef(0);
 
-  const prev = () => setCurrent((c) => (c === 0 ? screenshots.length - 1 : c - 1));
-  const next = () => setCurrent((c) => (c === screenshots.length - 1 ? 0 : c + 1));
+  const prev = useCallback(
+    () => setCurrent((c) => (c === 0 ? screenshots.length - 1 : c - 1)),
+    []
+  );
+  const next = useCallback(
+    () => setCurrent((c) => (c === screenshots.length - 1 ? 0 : c + 1)),
+    []
+  );
+
+  const handleDragStart = useCallback((clientX: number) => {
+    setIsDragging(true);
+    startX.current = clientX;
+    currentX.current = clientX;
+  }, []);
+
+  const handleDragMove = useCallback((clientX: number) => {
+    if (!isDragging) return;
+    currentX.current = clientX;
+    const delta = currentX.current - startX.current;
+    setDragOffset(Math.max(-100, Math.min(100, delta)));
+  }, [isDragging]);
+
+  const handleDragEnd = useCallback(() => {
+    if (!isDragging) return;
+    const delta = currentX.current - startX.current;
+    if (delta > SWIPE_THRESHOLD) {
+      prev();
+    } else if (delta < -SWIPE_THRESHOLD) {
+      next();
+    }
+    setIsDragging(false);
+    setDragOffset(0);
+  }, [isDragging, prev, next]);
+
+  const handleTouchStart = useCallback(
+    (e: React.TouchEvent) => handleDragStart(e.touches[0].clientX),
+    [handleDragStart]
+  );
+  const handleTouchMove = useCallback(
+    (e: React.TouchEvent) => handleDragMove(e.touches[0].clientX),
+    [handleDragMove]
+  );
+  const handleMouseDown = useCallback(
+    (e: React.MouseEvent) => handleDragStart(e.clientX),
+    [handleDragStart]
+  );
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent) => handleDragMove(e.clientX),
+    [handleDragMove]
+  );
 
   return (
     <div className="relative">
-      <div className="aspect-[9/19] max-w-[280px] mx-auto relative overflow-hidden rounded-[2.5rem] border-8 border-foreground/10 shadow-2xl bg-background">
-        {screenshots.map((screenshot, index) => (
-          <div
-            key={screenshot.src}
-            className={`absolute inset-0 transition-opacity duration-300 ${
-              index === current ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <Image
-              src={screenshot.src}
-              alt={screenshot.alt}
-              fill
-              className="object-cover"
-              priority={index === 0}
-            />
-          </div>
-        ))}
+      <div
+        className="aspect-[9/19] max-w-[280px] mx-auto relative overflow-hidden rounded-[2.5rem] border-8 border-foreground/10 shadow-2xl bg-background cursor-grab active:cursor-grabbing touch-pan-y"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleDragEnd}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleDragEnd}
+        onMouseLeave={handleDragEnd}
+      >
+        {screenshots.map((screenshot, index) => {
+          const offset = index - current;
+          const translateX = offset * 100 + (isDragging ? (dragOffset / 280) * 100 : 0);
+          const isVisible = Math.abs(offset) <= 1;
+
+          return (
+            <div
+              key={screenshot.src}
+              className={`absolute inset-0 ${isDragging ? "" : "transition-transform duration-300 ease-out"}`}
+              style={{
+                transform: `translateX(${translateX}%)`,
+                visibility: isVisible ? "visible" : "hidden",
+              }}
+            >
+              <Image
+                src={screenshot.src}
+                alt={screenshot.alt}
+                fill
+                sizes="(max-width: 640px) 280px, 280px"
+                className="object-cover select-none pointer-events-none"
+                priority={index === 0}
+                loading={index <= 1 ? "eager" : "lazy"}
+                quality={75}
+                draggable={false}
+              />
+            </div>
+          );
+        })}
       </div>
 
       {/* Navigation */}
@@ -55,16 +130,20 @@ export function AppScreenshotCarousel() {
           <ChevronLeft className="w-4 h-4" />
         </Button>
 
-        <div className="flex gap-2">
+        <div className="flex gap-1">
           {screenshots.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrent(index)}
-              className={`w-2 h-2 rounded-full transition-colors ${
-                index === current ? "bg-primary" : "bg-primary/30"
-              }`}
+              className="w-8 h-8 flex items-center justify-center"
               aria-label={`Go to screenshot ${index + 1}`}
-            />
+            >
+              <span
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  index === current ? "bg-primary" : "bg-primary/30"
+                }`}
+              />
+            </button>
           ))}
         </div>
 
