@@ -16,9 +16,6 @@ const nextConfig: NextConfig = {
 
   // Enable compression
   compress: true,
-
-  // Reduce bundle size by using SWC minifier
-  swcMinify: true,
 };
 
 export default nextConfig;
