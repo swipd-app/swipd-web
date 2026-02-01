@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Footer } from "@/components/footer";
 import { AppScreenshotCarousel } from "@/components/app-screenshot-carousel";
-import { APP_NAME, APP_STORE_URL, SOCIAL_LINKS } from "@/lib/constants";
+import { APP_NAME, APP_STORE_URL, PLAY_STORE_URL, SOCIAL_LINKS } from "@/lib/constants";
 import {
   Heart,
   Sparkles,
@@ -49,15 +49,26 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center pt-4">
-            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
-              <Image
-                src="/app-store-badge.svg"
-                alt="Download on the App Store"
-                width={180}
-                height={60}
-                className="h-14 w-auto"
-              />
-            </a>
+            <div className="flex flex-row gap-3 items-center">
+              <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
+                <Image
+                  src="/app-store-badge.svg"
+                  alt="Download on the App Store"
+                  width={180}
+                  height={60}
+                  className="h-14 w-auto"
+                />
+              </a>
+              <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">
+                <Image
+                  src="/google-play-badge.svg"
+                  alt="Get it on Google Play"
+                  width={180}
+                  height={60}
+                  className="h-14 w-auto"
+                />
+              </a>
+            </div>
             <Button asChild size="lg" variant="outline" className="text-lg">
               <Link href="#how-it-works">
                 How It Works
@@ -176,15 +187,26 @@ export default function Home() {
                 </li>
               </ul>
 
-              <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block">
-                <Image
-                  src="/app-store-badge.svg"
-                  alt="Download on the App Store"
-                  width={180}
-                  height={60}
-                  className="h-14 w-auto"
-                />
-              </a>
+              <div className="flex flex-row gap-3 items-center mt-4">
+                <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
+                  <Image
+                    src="/app-store-badge.svg"
+                    alt="Download on the App Store"
+                    width={180}
+                    height={60}
+                    className="h-14 w-auto"
+                  />
+                </a>
+                <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">
+                  <Image
+                    src="/google-play-badge.svg"
+                    alt="Get it on Google Play"
+                    width={180}
+                    height={60}
+                    className="h-14 w-auto"
+                  />
+                </a>
+              </div>
             </div>
 
             <AppScreenshotCarousel />
@@ -370,13 +392,22 @@ export default function Home() {
             Ready to Start Shopping?
           </h2>
           <p className="text-xl text-muted-foreground">
-            {APP_NAME} is available for free on the App Store
+            {APP_NAME} is available for free on iOS and Android
           </p>
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
             <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
               <Image
                 src="/app-store-badge.svg"
                 alt="Download on the App Store"
+                width={180}
+                height={60}
+                className="h-14 w-auto"
+              />
+            </a>
+            <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">
+              <Image
+                src="/google-play-badge.svg"
+                alt="Get it on Google Play"
                 width={180}
                 height={60}
                 className="h-14 w-auto"

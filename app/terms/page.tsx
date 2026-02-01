@@ -947,6 +947,55 @@ export default function TermsPage() {
               </div>
             </section>
 
+            {/* Google Play Store Specific Terms */}
+            <section id="google-play-terms">
+              <h2 className="text-2xl font-semibold mb-6 pb-2 border-b">Google Play Store Specific Terms</h2>
+
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-medium mb-2">Acknowledgment</h3>
+                  <p className="text-muted-foreground mb-2">You acknowledge that:</p>
+                  <ul className="list-disc list-inside text-muted-foreground ml-4 space-y-1">
+                    <li>These Terms are between you and {APP_NAME}, not Google</li>
+                    <li>Google has no obligation to provide support for the App</li>
+                    <li>Google is not responsible for addressing claims related to the App</li>
+                    <li>You must comply with Google Play&apos;s Terms of Service when using the App</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-medium mb-2">Scope of License</h3>
+                  <p className="text-muted-foreground">
+                    The license granted is limited to a non-transferable right to use {APP_NAME} on Android devices you own or control, as permitted by Google Play&apos;s Terms of Service.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-medium mb-2">Maintenance and Support</h3>
+                  <p className="text-muted-foreground">
+                    {APP_NAME} (not Google) is responsible for maintenance and support services.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-medium mb-2">Product Claims</h3>
+                  <p className="text-muted-foreground mb-2">{APP_NAME} (not Google) is responsible for addressing any claims regarding the App, including:</p>
+                  <ul className="list-disc list-inside text-muted-foreground ml-4 space-y-1">
+                    <li>Product liability claims</li>
+                    <li>Failure to conform to legal or regulatory requirements</li>
+                    <li>Consumer protection or similar claims</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-medium mb-2">Intellectual Property</h3>
+                  <p className="text-muted-foreground">
+                    In the event of third-party claims that the App infringes intellectual property rights, {APP_NAME} (not Google) is responsible for investigation, defense, settlement, and discharge.
+                  </p>
+                </div>
+              </div>
+            </section>
+
             <hr className="border-border my-8" />
             <p className="text-muted-foreground text-sm italic text-center">
               © 2026 {APP_NAME}. All rights reserved.
