@@ -50,11 +50,18 @@ export default function PrivacyPolicyPage() {
               <h2 className="text-2xl font-semibold mb-4">Information We Collect</h2>
 
               <h3 className="text-xl font-medium mt-6 mb-3">1. Information You Provide</h3>
-              <p className="text-muted-foreground mb-2"><strong>Apple Sign-In Data:</strong> When you sign in with Apple ID, we collect:</p>
+              <p className="text-muted-foreground mb-2"><strong>Apple Sign-In Data (iOS):</strong> When you sign in with Apple ID, we collect:</p>
               <ul className="list-disc list-inside text-muted-foreground ml-4 space-y-1">
                 <li>Apple ID identifier (anonymized)</li>
                 <li>Email address (if provided)</li>
                 <li>Full name (if provided)</li>
+              </ul>
+
+              <p className="text-muted-foreground mb-2 mt-4"><strong>Google Sign-In Data (Android):</strong> When you sign in with Google, we collect:</p>
+              <ul className="list-disc list-inside text-muted-foreground ml-4 space-y-1">
+                <li>Google account identifier</li>
+                <li>Email address</li>
+                <li>Display name (if provided)</li>
               </ul>
 
               <p className="text-muted-foreground mb-2 mt-4"><strong>User Preferences:</strong></p>

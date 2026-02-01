@@ -88,10 +88,10 @@ export default function SupportPage() {
 
                 <div>
                   <h3 className="text-xl font-medium mb-2">Which platforms is {APP_NAME} available on?</h3>
-                  <p className="text-muted-foreground mb-2">Currently, {APP_NAME} is available on:</p>
+                  <p className="text-muted-foreground mb-2">{APP_NAME} is available on:</p>
                   <ul className="list-disc list-inside text-muted-foreground ml-4 space-y-1">
                     <li>iOS (iPhone and iPad) - iOS 17.0 or later</li>
-                    <li>Android version coming soon!</li>
+                    <li>Android - Android 8.0 (Oreo) or later</li>
                   </ul>
                 </div>
               </div>
@@ -105,7 +105,7 @@ export default function SupportPage() {
                 <div>
                   <h3 className="text-xl font-medium mb-2">Do I need an account to use {APP_NAME}?</h3>
                   <p className="text-muted-foreground mb-2">
-                    No! You can use {APP_NAME} as a guest without creating an account. However, signing in with Apple ID offers benefits:
+                    No! You can use {APP_NAME} as a guest without creating an account. However, signing in (with Apple ID on iOS or Google on Android) offers benefits:
                   </p>
                   <ul className="list-disc list-inside text-muted-foreground ml-4 space-y-1">
                     <li>Sync your wishlist across devices</li>
@@ -116,11 +116,19 @@ export default function SupportPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-medium mb-2">How do I sign in with Apple?</h3>
+                  <h3 className="text-xl font-medium mb-2">How do I sign in?</h3>
+                  <p className="text-muted-foreground mb-2"><strong>On iOS:</strong></p>
                   <ol className="list-decimal list-inside text-muted-foreground ml-4 space-y-1">
                     <li>Open {APP_NAME} and navigate to the <strong>Settings</strong> tab</li>
                     <li>Tap <strong>&quot;Sign in with Apple&quot;</strong></li>
                     <li>Follow the Apple authentication prompts</li>
+                    <li>Your guest data can be merged with your new account</li>
+                  </ol>
+                  <p className="text-muted-foreground mt-4 mb-2"><strong>On Android:</strong></p>
+                  <ol className="list-decimal list-inside text-muted-foreground ml-4 space-y-1">
+                    <li>Open {APP_NAME} and navigate to the <strong>Settings</strong> tab</li>
+                    <li>Tap <strong>&quot;Sign in with Google&quot;</strong></li>
+                    <li>Follow the Google authentication prompts</li>
                     <li>Your guest data can be merged with your new account</li>
                   </ol>
                 </div>
@@ -137,9 +145,9 @@ export default function SupportPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-medium mb-2">Can I use {APP_NAME} without an Apple ID?</h3>
+                  <h3 className="text-xl font-medium mb-2">Can I use {APP_NAME} without signing in?</h3>
                   <p className="text-muted-foreground">
-                    Yes! You can continue using {APP_NAME} as a guest indefinitely. Guest sessions are tied to your device and remain active for 90 days of inactivity.
+                    Yes! You can continue using {APP_NAME} as a guest indefinitely on both iOS and Android. Guest sessions are tied to your device and remain active for 90 days of inactivity.
                   </p>
                 </div>
 
@@ -316,6 +324,7 @@ export default function SupportPage() {
                   <p className="text-muted-foreground mb-2">Yes! You can disable notifications at any time:</p>
                   <ul className="list-disc list-inside text-muted-foreground ml-4 space-y-1">
                     <li><strong>iOS:</strong> Settings &gt; Notifications &gt; {APP_NAME} &gt; Turn off</li>
+                    <li><strong>Android:</strong> Settings &gt; Apps &gt; {APP_NAME} &gt; Notifications &gt; Turn off</li>
                     <li><strong>In-app:</strong> Settings &gt; Notifications (coming soon)</li>
                   </ul>
                 </div>
@@ -444,12 +453,12 @@ export default function SupportPage() {
                   <ol className="list-decimal list-inside text-muted-foreground ml-4 space-y-1">
                     <li><strong>Force close and reopen</strong> the app</li>
                     <li><strong>Restart your device</strong></li>
-                    <li><strong>Check for updates:</strong> App Store &gt; Updates &gt; {APP_NAME}</li>
+                    <li><strong>Check for updates:</strong> App Store (iOS) or Google Play Store (Android) &gt; Updates &gt; {APP_NAME}</li>
                     <li><strong>Free up storage:</strong> Ensure at least 500MB free space</li>
                     <li><strong>Reinstall the app</strong> (your account data is safe on our servers)</li>
                   </ol>
                   <p className="text-muted-foreground mt-2">
-                    If the issue persists, contact support with device model, iOS version, description of the problem, and steps to reproduce.
+                    If the issue persists, contact support with device model, OS version (iOS/Android), description of the problem, and steps to reproduce.
                   </p>
                 </div>
 
@@ -599,9 +608,9 @@ export default function SupportPage() {
                   <ul className="list-disc list-inside text-muted-foreground ml-4 space-y-1">
                     <li>✅ Apple Sign-In (live)</li>
                     <li>✅ Wishlist management (live)</li>
+                    <li>✅ Android app (live)</li>
                     <li>🚧 Price drop notifications (in development)</li>
                     <li>🚧 Back in stock alerts (in development)</li>
-                    <li>📅 Android app (Q2 2026)</li>
                     <li>📅 Custom wishlist categories</li>
                     <li>📅 Social features (share wishlists)</li>
                     <li>📅 More retailers and categories</li>
@@ -613,7 +622,7 @@ export default function SupportPage() {
                   <p className="text-muted-foreground mb-2">Help us improve {APP_NAME} by reporting bugs:</p>
                   <ol className="list-decimal list-inside text-muted-foreground ml-4 space-y-1">
                     <li><strong>Email:</strong> <a href={`mailto:${COMPANY.email}`} className="text-primary hover:underline">{COMPANY.email}</a></li>
-                    <li><strong>Include:</strong> Device model and iOS version, App version (Settings &gt; About), Screenshots or screen recordings, Steps to reproduce the issue</li>
+                    <li><strong>Include:</strong> Device model and OS version (iOS/Android), App version (Settings &gt; About), Screenshots or screen recordings, Steps to reproduce the issue</li>
                   </ol>
                 </div>
               </div>
