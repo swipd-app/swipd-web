@@ -6,14 +6,13 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const screenshots = [
-  { src: "/app-ss/1.png", alt: "Swipd app - Discover products" },
-  { src: "/app-ss/2.png", alt: "Swipd app - Swipe to like" },
-  { src: "/app-ss/3.png", alt: "Swipd app - Build your wishlist" },
-  { src: "/app-ss/4.png", alt: "Swipd app - Get price drop alerts" },
-  { src: "/app-ss/5.png", alt: "Swipd app - Filter by categories" },
-  { src: "/app-ss/6.png", alt: "Swipd app - Browse by stores" },
-  { src: "/app-ss/7.png", alt: "Swipd app - View product details" },
-  { src: "/app-ss/8.png", alt: "Swipd app - Shop quickly" },
+  { src: "/app-ss/1.jpg", alt: "Swipd app - Swipe. Shop. Discover" },
+  { src: "/app-ss/2.jpg", alt: "Swipd app - Save What You Love" },
+  { src: "/app-ss/3.jpg", alt: "Swipd app - Never Miss a Deal" },
+  { src: "/app-ss/4.jpg", alt: "Swipd app - Sign In" },
+  { src: "/app-ss/5.jpg", alt: "Swipd app - Discover Page" },
+  { src: "/app-ss/6.jpg", alt: "Swipd app - Wishlist Page" },
+  { src: "/app-ss/7.jpg", alt: "Swipd app - Settings Page" },
 ];
 
 const SWIPE_THRESHOLD = 50;
