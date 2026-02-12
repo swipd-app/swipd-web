@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { AppScreenshotCarousel } from "@/components/app-screenshot-carousel";
 import { APP_NAME, APP_STORE_URL, PLAY_STORE_URL, SOCIAL_LINKS } from "@/lib/constants";
@@ -25,10 +25,7 @@ import {
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
-      {/* Theme Toggle */}
-      <div className="fixed top-4 right-4 z-50">
-        <ThemeToggle />
-      </div>
+      <Header />
 
       {/* Hero Section */}
       <section className="flex-1 flex flex-col items-center justify-center px-4 py-20 text-center">

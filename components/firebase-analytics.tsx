@@ -6,6 +6,7 @@ import { getAnalytics, isSupported } from "firebase/analytics";
 
 export function FirebaseAnalytics() {
   useEffect(() => {
+    if (!app) return;
     isSupported().then((supported) => {
       if (supported) {
         getAnalytics(app);

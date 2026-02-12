@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
+import { withContentlayer } from "next-contentlayer2";
+import path from "path";
 
 const nextConfig: NextConfig = {
+  // Fix workspace root detection when multiple lockfiles exist
+  outputFileTracingRoot: path.join(__dirname, "./"),
+
   // Modern JavaScript - disable unnecessary polyfills for modern browsers
   experimental: {
     optimizePackageImports: ["lucide-react"],
@@ -37,4 +42,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withContentlayer(nextConfig);

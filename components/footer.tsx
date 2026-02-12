@@ -7,6 +7,9 @@ export function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
         <p>© 2026 {COMPANY.name}. All rights reserved.</p>
         <div className="flex gap-6">
+          <Link href="/blog" className="hover:text-foreground transition-colors">
+            Blog
+          </Link>
           <Link href="/install" className="hover:text-foreground transition-colors">
             Install
           </Link>
