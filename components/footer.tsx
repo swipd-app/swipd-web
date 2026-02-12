@@ -10,8 +10,8 @@ export function Footer() {
           <Link href="/blog" className="hover:text-foreground transition-colors">
             Blog
           </Link>
-          <Link href="/install" className="hover:text-foreground transition-colors">
-            Install
+          <Link href="/download" className="hover:text-foreground transition-colors">
+            Download
           </Link>
           <Link href="/terms" className="hover:text-foreground transition-colors">
             Terms of Service

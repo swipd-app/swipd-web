@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { APP_NAME, COMPANY } from "@/lib/constants";
-import { ArrowLeft } from "lucide-react";
 
 export const metadata = {
   title: `Terms of Service - ${APP_NAME}`,
@@ -12,23 +11,7 @@ export const metadata = {
 export default function TermsPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Theme Toggle */}
-      <div className="fixed top-4 right-4 z-50">
-        <ThemeToggle />
-      </div>
-
-      {/* Header */}
-      <header className="border-b">
-        <div className="max-w-4xl mx-auto px-4 py-4">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </Link>
-        </div>
-      </header>
+      <Header />
 
       {/* Content */}
       <main className="flex-1 px-4 py-12">

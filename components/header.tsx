@@ -11,6 +11,7 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navigation = [
+  { name: "Home", href: "/" },
   { name: "Blog", href: "/blog" },
   { name: "Support", href: "/support" },
 ];
@@ -41,7 +42,7 @@ export function Header() {
               href={item.href}
               className={cn(
                 "text-sm transition-colors",
-                pathname.startsWith(item.href)
+                (item.href === "/" ? pathname === "/" : pathname.startsWith(item.href))
                   ? "text-foreground font-medium"
                   : "text-muted-foreground hover:text-foreground"
               )}
@@ -51,7 +52,7 @@ export function Header() {
           ))}
           <ThemeToggle />
           <Button asChild size="sm">
-            <Link href="/install">Download</Link>
+            <Link href="/download">Download</Link>
           </Button>
         </nav>
 
@@ -84,7 +85,7 @@ export function Header() {
                 onClick={() => setMobileOpen(false)}
                 className={cn(
                   "text-sm py-2 transition-colors",
-                  pathname.startsWith(item.href)
+                  (item.href === "/" ? pathname === "/" : pathname.startsWith(item.href))
                     ? "text-foreground font-medium"
                     : "text-muted-foreground hover:text-foreground"
                 )}
@@ -93,7 +94,7 @@ export function Header() {
               </Link>
             ))}
             <Button asChild size="sm" className="w-fit mt-1">
-              <Link href="/install" onClick={() => setMobileOpen(false)}>
+              <Link href="/download" onClick={() => setMobileOpen(false)}>
                 Download
               </Link>
             </Button>

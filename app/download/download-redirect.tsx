@@ -26,7 +26,7 @@ function detectPlatform(): Platform {
   return "unknown";
 }
 
-export function InstallRedirect() {
+export function DownloadRedirect() {
   const [platform, setPlatform] = useState<Platform>("unknown");
 
   useEffect(() => {

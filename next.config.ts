@@ -22,6 +22,17 @@ const nextConfig: NextConfig = {
   // Enable compression
   compress: true,
 
+  // Redirects (old URLs)
+  async redirects() {
+    return [
+      {
+        source: "/install",
+        destination: "/download",
+        permanent: true,
+      },
+    ];
+  },
+
   // Security headers
   async headers() {
     return [
