@@ -519,7 +519,7 @@ export default function SupportPage() {
                     {APP_NAME} uses Apple Sign-In, so password recovery is handled by Apple:
                   </p>
                   <ol className="list-decimal list-inside text-muted-foreground ml-4 space-y-1">
-                    <li>Go to <a href="https://iforgot.apple.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">iforgot.apple.com</a></li>
+                    <li>Go to <a href="https://support.apple.com/apple-id" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Apple ID Support</a></li>
                     <li>Follow Apple&apos;s account recovery process</li>
                     <li>Once recovered, sign back in to {APP_NAME}</li>
                   </ol>
