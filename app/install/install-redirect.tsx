@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { APP_NAME, APP_STORE_URL, PLAY_STORE_URL } from "@/lib/constants";
-import { Smartphone, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 type Platform = "ios" | "android" | "unknown";
 
@@ -26,7 +27,7 @@ function detectPlatform(): Platform {
 }
 
 export function InstallRedirect() {
-  const [platform, setPlatform] = useState<Platform | null>(null);
+  const [platform, setPlatform] = useState<Platform>("unknown");
 
   useEffect(() => {
     const detected = detectPlatform();
@@ -39,16 +40,6 @@ export function InstallRedirect() {
       window.location.replace(PLAY_STORE_URL);
     }
   }, []);
-
-  // Show loading state while detecting
-  if (platform === null) {
-    return (
-      <main className="flex flex-col items-center justify-center min-h-screen px-4">
-        <Loader2 className="w-8 h-8 animate-spin text-primary" />
-        <p className="mt-4 text-muted-foreground">Detecting your device...</p>
-      </main>
-    );
-  }
 
   // Show redirecting state for mobile platforms
   if (platform === "ios" || platform === "android") {
@@ -70,14 +61,18 @@ export function InstallRedirect() {
     );
   }
 
-  // Desktop/unknown platform - show both badges
+  // Default: desktop/unknown/SSR - show both badges (crawlers see this)
   return (
     <main className="flex flex-col items-center justify-center min-h-screen px-4 text-center">
       <div className="max-w-md mx-auto space-y-8">
         <div className="space-y-4">
-          <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto">
-            <Smartphone className="w-10 h-10 text-primary" />
-          </div>
+          <Image
+            src="/icon.png"
+            alt={APP_NAME}
+            width={80}
+            height={80}
+            className="rounded-2xl mx-auto"
+          />
           <h1 className="text-3xl font-bold">Get {APP_NAME}</h1>
           <p className="text-muted-foreground">
             Download {APP_NAME} on your mobile device to start discovering amazing products.
@@ -108,6 +103,16 @@ export function InstallRedirect() {
         <p className="text-sm text-muted-foreground">
           Available for iOS and Android
         </p>
+
+        <div className="flex gap-4 items-center justify-center text-sm text-muted-foreground">
+          <Link href="/" className="text-primary hover:underline">
+            Learn more about {APP_NAME}
+          </Link>
+          <span>·</span>
+          <Link href="/support" className="text-primary hover:underline">
+            Support
+          </Link>
+        </div>
       </div>
     </main>
   );
